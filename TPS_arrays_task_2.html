@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPS_arrays_task_2</title>
+</head>
+
+<body>
+
+  <script>
+    
+    // adding new elements to an existing array and outputting the updated existing array elements
+
+
+    // // hardcode input from keyboard. Variant 1
+
+    // const arrSize = +prompt(`Enter array length:`);
+
+    // let arr$ = new Array(arrSize);
+
+    // for (let i = 0; i < arr$.length; i++) {
+    //   arr$[i] = +prompt(`Enter array values:`);
+    // }
+
+    // console.log(arr$);
+
+    // arr$.length += 2;
+    // for (let i = 0; i < arr$.length; i++) {
+    //   for (let j = 0; j < arr$.length; j++) {
+    //     arr$[j] = arr$[i];
+    //     i++;
+    //   }
+    // }
+    // arr$[arr$.length - 2] = +prompt(`Add more value:`);
+    // arr$[arr$.length - 1] = +prompt(`Add more value:`);
+
+    // console.log(arr$);
+
+
+
+
+    // // hardcode input from keyboard. Variant 2
+
+    // const arrSize = +prompt(`Enter array length:`);
+
+    // let arr$ = new Array(arrSize);
+
+    // for (let i = 0; i < arr$.length; i++) {
+    //   arr$[i] = +prompt(`Enter array values:`);
+    // } 
+
+    // console.log(arr$);
+
+    // arr$.length += 3;
+    // for (let i = 0; i < arr$.length; i++) {
+    //   for (let j = 0; j < arr$.length; j++) {
+    //     arr$[j] = arr$[i];
+    //     i++;
+    //     if (j >= arrSize) {
+    //       arr$[j] = +prompt(`Add more value:`);
+    //     }
+    //   }
+    // }
+
+    // console.log(arr$);
+
+
+
+
+    // flexible input from keyboard
+
+    const arrSize = +prompt(`Enter array length:`);
+
+    let arr$ = new Array(arrSize);
+
+    for (let i = 0; i < arr$.length; i++) {
+      arr$[i] = +prompt(`Enter array values:`);
+    }
+
+    console.log(arr$);
+
+    let changeLength = +prompt(`INCREASE (change) array length:`)
+
+    let newLength = arr$.length + changeLength;
+    for (let i = 0; i < arr$.length; i++) {
+      for (let j = 0; j < newLength; j++) {
+        arr$[j] = arr$[i];
+        i++;
+        if (arr$[j] === arr$[i]) {
+          arr$[j] = +prompt(`Add more value:`);
+        }
+      }
+    }
+
+    console.log(arr$);
+  </script>
+</body>
+
+</html>

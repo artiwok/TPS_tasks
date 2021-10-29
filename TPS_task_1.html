@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPS_task_1</title>
+</head>
+
+<body>
+
+  <script>
+
+    // calculator using functions
+
+    function mod(num1, num2) {
+      return num1 % num2;
+    };
+
+    function add(num1, num2) {
+      return num1 + num2;
+    };
+
+    function sub(num1, num2) {
+      return num1 - num2;
+    };
+
+    function mul(num1, num2) {
+      return num1 * num2;
+    };
+
+    function div(num1, num2) {
+      return num1 / num2;
+    };
+
+    function calculator(num1, num2, action) {
+      let res;
+      switch (action) {
+        case '+':
+          res = add(num1, num2);
+          break;
+        case '-':
+          res = sub(num1, num2);
+          break;
+        case '*':
+          res = mul(num1, num2);
+          break;
+        case '/':
+          res = div(num1, num2);
+          break;
+        case '%':
+          res = mod(num1, num2);
+          break;
+        default:
+          console.log('There is no such action');
+      };
+      return res;
+    };
+
+    let calcFunc = calculator(2, 9, '%');
+    console.log(calcFunc);
+
+
+
+    // factorial
+
+    function getFactorial(num) {
+      if (num <= 1) {
+        return 1;
+      } else {
+        return num * getFactorial(num - 1);
+      }
+    }
+
+    console.log(getFactorial(5));
+
+
+
+    // prime numbers. Variant 1
+
+    const num = 100;
+
+    prime:
+    for (let i = 2; i <= num; i++) {
+      for (let x = 2; x < i; x++) {
+        if (i % x === 0) {
+          console.log(`${i} is a composite number`);
+          continue prime;
+        }
+      }
+      console.log(`${i} is a prime number`);
+    }
+
+
+
+    // prime numbers. Variant 2
+
+    const _num = 50;
+
+    for (let i = 2; i <= _num; i++) {
+      let flag = true;
+      for (let x = 2; x < i; x++) {
+        if (i % x === 0) {
+          flag = false;
+          break;
+        }
+      }
+      if (flag) {
+        console.log(`${i} - prime number`);
+      } else {
+        console.log(`${i} - composite number`);
+      }
+    }
+
+
+
+    // prime numbers via function. Variant 3 
+
+    function getPrime(num) {
+      for (let i = 2; i <= num; i++) {
+        let flag = true;
+        for (let x = 2; x < i; x++) {
+          if (i % x === 0) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          console.log(`${i} - prime number`);
+        } else {
+          console.log(`${i} - composite number`);
+        }
+      }
+    }
+
+    getPrime(20);
+
+
+
+    // Fibonacci function
+
+    function getFib(num) {
+      if (num <= 1) {
+        return num;
+      } else {
+        return getFib(num - 1) + getFib(num - 2);
+      }
+    }
+
+    console.log(getFib(4));
+
+
+
+    // array initialization. Variant 1
+
+    let arr_1 = [];
+    let val_1 = +prompt(`Enter a value:`);
+    let arr_2 = [];
+    arr_2.length = arr_1.length + 7;
+    arr_2[0] = val_1;
+    console.log(arr_2[0]);
+
+
+
+    // array initialization. Variant 2
+
+    let arr_3 = [];
+    let val_2 = +prompt(`Enter a value:`);
+    let arr_4 = [];
+    arr_4.length = arr_3.length + 7;
+
+    for (let i = 0; i < arr_4.length; i++) {
+      arr_4[i] = val_2;
+    }
+
+    console.log(arr_4);
+
+
+
+    // array initialization. Variant 3
+
+    let arr_5 = [];
+    let arr_6 = [];
+    arr_6.length = arr_5.length + 7;
+
+    for (let i = 0; i < arr_6.length; i++) {
+      arr_6[i] = +prompt(`Enter a value:`);
+    }
+
+    console.log(arr_6);
+
+
+
+    // array initialization. Variant 4
+
+    let arr_7 = [];
+    let arr_8 = [];
+    let arrLength = +prompt(`Enter array length:`);
+    arr_8.length = arr_7.length + arrLength;
+
+    for (let i = 0; i < arr_8.length; i++) {
+      arr_8[i] = +prompt(`Enter array value:`);
+    }
+
+    console.log(arr_8);
+
+
+    //
+    
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
