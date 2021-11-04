@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPS_task_4_arrays</title>
+</head>
+
+<body>
+
+  <script>
+
+    var arr = [4];
+    var f = 7;
+    function push(arr, value) {
+      var array = new Array(arr.length);
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    arr = push(arr, 7);
+    console.log(arr); // [7]
+
+
+
+    //
+
+    var arr = [4];
+    function push(arr, value) {
+      var array = new Array(arr.length);
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    arr = push(arr, 9);
+    console.log(arr); // [9]
+
+
+
+    //
+
+    var arr = [];
+    var f = 7;
+
+    function push(arr, value) {
+      var array = new Array(arr.length + 1);
+      for (let i = 0; i < arr.length; i++) {
+        array[i] = arr[i];
+      }
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    arr = push(arr, f);
+    arr = push(arr, 8);
+    arr = push(arr, 9);
+    console.log(arr); // [7, 8, 9]
+
+
+
+    //
+
+    var arr = [];
+    var f = 7;
+
+    function push(arr, value) {
+      var array = new Array(arr.length + 1);
+      for (let i = 0; i < arr.length; i++) { array[i] = arr[i]; }
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    arr = push(arr, f);
+    console.log(arr); // [7]
+
+    arr = push(arr, f = 4);
+    console.log(arr); // [7, 4]
+
+
+
+    //
+
+    var arr = [];
+
+    function push(arr, value = 9) {
+      var array = new Array(arr.length + 1);
+      for (let i = 0; i < arr.length; i++) { array[i] = arr[i]; }
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    arr = push(arr);
+    console.log(arr); // [9]
+
+    arr = push(arr, f = 4);
+    console.log(arr); // [9, 4]
+
+
+
+    // indexOf
+
+    let array = [1, 4, 0, -1, 'a', 'k'];
+
+    function indexOf(arr, elem) {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === elem) {
+          return i;
+        }
+      }
+    }
+
+    console.log(indexOf(array, 'a')); // 4
+    console.log(indexOf(array, 0)); // 2
+
+
+
+    // bubble sort function variant 1
+
+    // var arr = [5, -2, 0, 100, -100, 44, 10, 7, 20, 11, -45, 63, -12, 42, -78, 90, -3, -85, -41, 30, 52, -73];
+
+    // creating random array with elems from 0 to arrayMax
+
+    var myArray = [];
+    var arrayMax = 5;
+    var limit = arrayMax + 11;
+    for (var i = 0; i < arrayMax; i++) {
+      myArray.push(Math.floor(Math.random() * limit));
+    }
+
+    console.log(myArray);
+
+    function bubbleSort_1(arr) {
+      // реализация всех проходов по массиву согласно количеству элементов в массиве
+      for (let i = 0; i < arr.length; i++) {
+        // реализация одного прохода по массиву и перестановка (swap) значений с помещением максимального значения в конец массива
+        //  arr.length - 1 последний элемент уже будет отсортирован на предыдущей итерации, поэтому для него проход не требуется
+        // "arr.length - 1 - i;" оптимизация сортировки путем игнорирования уже отсортированных элементов, 
+        // где i - кол-во отсортированных элементов от конца массива 
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            const temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+      console.log(arr);
+      return arr;
+    }
+
+    console.log(bubbleSort_1(myArray));
+
+
+
+    // bubble sort function variant 2
+
+    // creating random array with elems from 0 to arrayMax
+    var myArray = [];
+    var arrayMax = 5;
+    var limit = arrayMax + 11;
+    for (var i = 0; i < arrayMax; i++) {
+      myArray.push(Math.floor(Math.random() * limit));
+    }
+
+    console.log(myArray);
+
+    // bubble sort function using "flag" variable
+    
+    function bubbleSort_2(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        var wasSwap = false;
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            var temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+            wasSwap = true;
+          }
+        }
+        if (!wasSwap) break; 
+      }
+      return arr;
+    }
+
+    console.log(bubbleSort_2(myArray));
+
+
+
+    // Дан массив с числами. Проверьте, что в этом массиве есть число 5. 
+    // Если есть - выведите 'да', а если нет - выведите 'нет'.
+
+    var myArr = [];
+    var arrMax = 5;
+    var limit = arrMax + 20;
+    for (let i = 0; i < arrMax; i++) {
+      myArr.push(Math.floor(Math.random() * limit));
+    }
+
+    console.log(myArr);
+
+
+    // variant 1
+    function findElem_1(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 5) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    console.log(findElem_1(myArr));
+
+
+
+    // variant 2
+    function findElem_2(arr) {
+      var isElem = false;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 5) {
+          isElem = true;
+          break;
+        }
+      }
+      if (isElem === true) {
+        return "yes";
+      } else {
+        return "no";
+      }
+    }
+
+    console.log(findElem_2(myArr));
+
+
+  </script>
+
+</body>
+
+</html>

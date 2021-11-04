@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fibonacci_new</title>
+</head>
+
+<body>
+
+  <script>
+
+    // position:    0 1 2 3 4 5 6 7  8  9  10 11 12
+    // fib numbers: 0 1 1 2 3 5 8 13 21 34 55 89 144
+
+    // detailed variant
+    // в качестве аргумента указывается позиция искомого числа в последовательности Фибоначчи
+    
+    function getFib(num) {
+      const res = [0, 1];
+
+      for (let i = 2; i <= num; i++) {
+        const prevNum2 = res[i - 2];
+        const prevNum1 = res[i - 1];
+        res.push(prevNum1 + prevNum2);
+      }
+      return res[num];
+    }
+
+    console.log(getFib(7)); // 13
+
+
+
+    // optimized variant more efficient in space and time complexity
+
+    function getFibShort(num) {
+      let a = 0,
+        b = 1;
+
+      for (let i = 2; i <= num; i++) {
+        let c = a + b;
+        a = b;
+        b = c;
+      }
+      return b;
+    }
+
+    console.log(getFibShort(10)); // 55
+
+  </script>
+</body>
+
+</html>

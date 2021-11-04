@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPS_task_3_arrays</title>
+</head>
+
+<body>
+
+  <script>
+
+    // functon that adds an array value to the end of the existing array
+    var arr = [];
+    var val = 7;
+
+    function push(arr, value) {
+      var array = new Array(arr.length + 1);
+      for (let i = 0; i < arr.length; i++) {
+        array[i] = arr[i];
+      }
+      array[array.length - 1] = value;
+      return array;
+    }
+
+    console.log(push(arr, val));
+
+
+
+    // function that adds array values of any data type from keyboard to the end of the existing array
+
+    var arr = [];
+    // var arr = ['a', 'b', true, {}, NaN, undefined, null, 55, 'c'];
+    console.log(`initial array: `);
+    console.log(arr);
+
+    function pushFromKeyboard(arr) {
+      var array = new Array(arr.length);
+
+      for (let i = 0; i < arr.length; i++) {
+        array[i] = arr[i];
+      }
+
+      var count = 0;
+
+      while (true) {
+        var val = prompt(`Enter addational array value. To quit inputting enter "stop"`);
+
+        count++;
+
+        if (val === "stop") {
+          break;
+        }
+
+        if (!isNaN(val)) {
+          val = Number(val);
+        }
+
+        if (val === 'undefined') {
+          val = undefined;
+        }
+
+        if (val === '{}') {
+          val = new Object();
+        }
+
+        if (val === 'null') {
+          val = null;
+        }
+
+        if (val === 'true') {
+          val = true;
+        }
+
+        if (val === 'false') {
+          val = false;
+        }
+
+        if (val === '[]') {
+          val = new Array(Array);
+        }
+
+        if (val == '') {
+          val = '';
+        }
+
+        if (val === 'NaN') {
+          val = NaN;
+        }
+
+        array.length = arr.length + count;
+
+        for (let i = 0; i < array.length; i++) {
+          if (array === []) {
+            array[i] = val;
+          } else {
+            array[array.length - 1] = val;
+          }
+        }
+      }
+      return array;
+    }
+
+    console.log(`upgraded initial array: `);
+    console.log(pushFromKeyboard(arr));
+
+
+  </script>
+</body>
+
+</html>
