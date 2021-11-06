@@ -5,27 +5,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fibonacci_new</title>
+  <title>TPS_task_5_fibonacci</title>
 </head>
 
 <body>
 
   <script>
 
+    // Fibonacci series:
     // position:    0 1 2 3 4 5 6 7  8  9  10 11 12
     // fib numbers: 0 1 1 2 3 5 8 13 21 34 55 89 144
 
     // detailed variant
+
     // в качестве аргумента указывается позиция искомого числа в последовательности Фибоначчи
-    
     function getFib(num) {
+      // массив чисел Фибоначчи, который далее будет дополняться: [0, 1, 1, 2, 3, ... num]
       const res = [0, 1];
 
       for (let i = 2; i <= num; i++) {
-        const prevNum2 = res[i - 2];
-        const prevNum1 = res[i - 1];
+        const prevNum2 = res[i - 2]; // 2-2=0 => res[0] => 0, 3-2=1 => res[1] => 1, 4-2=2 => res[2] => 1,...
+        const prevNum1 = res[i - 1]; // 2-1=1 => res[1] => 1, 3-1=2 => res[2] => 1, 4-1=3 => res[3] => 2,...
         res.push(prevNum1 + prevNum2);
       }
+      // возвращается само число в последовательности Фибоначчи
       return res[num];
     }
 
@@ -43,11 +46,28 @@
         let c = a + b;
         a = b;
         b = c;
+        // вариант перестановки, используя третью переменную "с" : [a, b] = [b, c];
+        // вариант перестановки, без третьей переменной "с" : [a, b] = [b, a + b];
       }
       return b;
     }
 
     console.log(getFibShort(10)); // 55
+
+
+
+    // recursion variant - slow in time complexity comparing to previous variants
+
+    function getRecursiveFib(num) {
+      if (num <= 1) {
+        return num;
+      } else {
+        return getRecursiveFib(num - 1) + getRecursiveFib(num - 2);
+      }
+    }
+    // при вызове функции для получения самого числа в качестве аргумента указывется 
+    // порядковый номер (позиция) искомого числа в последовательности Фибоначчи:
+    console.log(getRecursiveFib(6)); // 8
 
   </script>
 </body>
