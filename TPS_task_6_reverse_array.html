@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TPS_task_6_reverse_array</title>
+</head>
+
+<body>
+
+  <script>
+
+    // generating random array 
+
+    var arr = [];
+    var arrLength = 6;
+    var valueLimit = 15;
+
+    for (let i = 0; i < arrLength; i++) {
+      arr.push(Math.floor(Math.random() * valueLimit));
+    }
+
+    console.log(arr);
+
+    // reverse array function
+    
+    function getReverse(array) {
+      var arrReversed = new Array(array.length);
+      for (let i = 0; i < arrReversed.length; i++) {
+        arrReversed[i] = array[array.length - 1];
+        array.length--;
+      }
+      return arrReversed;
+    }
+
+    console.log(getReverse(arr));
+
+  </script>
+</body>
+
+</html>
